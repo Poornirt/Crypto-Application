@@ -2,6 +2,10 @@ package helper
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.Color
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -27,5 +31,12 @@ class CommonHelper(mContext: Context) {
     fun gsonToJson(pList: ArrayList<Crypto>) {
         val lCrypto = mGson.toJson(pList)
         mSharedPreferenceEditor.putString(Constants.CRYPTOLIST,lCrypto).commit()
+    }
+
+    fun setSymbolSpan(symbol:String): SpannableString {
+        val strBuilder = symbol.replace("inr","/inr")
+        val lSymbol = SpannableString(strBuilder)
+        lSymbol.setSpan(ForegroundColorSpan(Color.GRAY), lSymbol.length - 4, lSymbol.length, 0)
+        return lSymbol
     }
 }

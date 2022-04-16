@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.cryptoapplication.databinding.ActivitySymbolViewBinding
-import com.google.gson.Gson
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
 import constants.Constants
@@ -66,14 +65,14 @@ class SymbolViewActivity : AppCompatActivity() {
         mBinding.swipeRefreshLayout.setOnRefreshListener {
             getIndividualSymbol(lSymbol)
         }
-        mBinding.bidsAndAsks.setOnClickListener {
+        mBinding.bidsAndAsksCard.setOnClickListener {
             val lIntent = Intent(this, BidsAndAsksActivity::class.java)
             val lBundle = Bundle()
             lBundle.putString(Constants.CRYPTO, lSymbol)
             lIntent.putExtra(Constants.BUNDLE, lBundle)
             startActivity(lIntent)
         }
-        mBinding.tradeList.setOnClickListener {
+        mBinding.tradeListCard.setOnClickListener {
             val lIntent = Intent(this, TradeListActivity::class.java)
             val lBundle = Bundle()
             lBundle.putString(Constants.CRYPTO, lSymbol)
@@ -136,15 +135,19 @@ class SymbolViewActivity : AppCompatActivity() {
                     .enqueue(object : Callback<Crypto> {
                         override fun onResponse(call: Call<Crypto>, response: Response<Crypto>) {
                             if (response.isSuccessful) {
-                                mBinding.swipeRefreshLayout.setRefreshing(false);
-                                Log.d("SymbolViewActivity", response.body().toString())
-                                mBinding.crypto = response.body()
-                                generateGraph()
+                                mBinding.swipeRefreshLayout.setRefreshing(false)
+                                response.body()?.let {
+                                    Log.d("SymbolViewActivity", response.body().toString())
+                                    mBinding.crypto = response.body()
+                                    val lTitle =
+                                        mBinding.crypto?.symbol?.replace("inr", "/inr")?.uppercase()
+                                    title = lTitle
+                                    generateGraph()
+                                }
                             }
                         }
-
                         override fun onFailure(call: Call<Crypto>, t: Throwable) {
-                            mBinding.swipeRefreshLayout.setRefreshing(false);
+                            mBinding.swipeRefreshLayout.setRefreshing(false)
                             Toast.makeText(
                                 this@SymbolViewActivity,
                                 "Request Failed,Please tyr again",

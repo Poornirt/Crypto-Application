@@ -19,9 +19,7 @@
             android:layout_marginStart="5dp"
             android:gravity="end"
             android:text="@string/open_price"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textSize="14sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/openPrice"
@@ -41,11 +39,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/openPriceTitle"
             android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
             android:gravity="end"
             android:text="@string/high_price"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textSize="14sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/highPrice"
@@ -54,6 +51,7 @@
             android:layout_below="@id/openPriceTitle"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
             android:gravity="end"
             android:text="@{`$` + crypto.highPrice}"
             android:textColor="@color/cardview_dark_background"
@@ -66,12 +64,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/highPriceTitle"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="5dp"
             android:gravity="end"
             android:text="@string/low_price"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textSize="14sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/lowPrice"
@@ -80,6 +77,7 @@
             android:layout_below="@id/highPrice"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
             android:gravity="end"
             android:text="@{`$` + crypto.lowPrice}"
             android:textColor="@color/cardview_dark_background"

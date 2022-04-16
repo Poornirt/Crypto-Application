@@ -14,14 +14,17 @@
         <activity
             android:name=".TradeListActivity"
             android:exported="false"
+            android:label=""
             android:theme="@style/MainTheme"/>
         <activity
             android:name=".BidsAndAsksActivity"
             android:exported="false"
+            android:label=""
             android:theme="@style/MainTheme" />
         <activity
             android:name=".SymbolViewActivity"
             android:exported="false"
+            android:label=""
             android:theme="@style/MainTheme" />
         <activity
             android:name=".SplashActivity"

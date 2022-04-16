@@ -49,7 +49,6 @@ class BidsAndAsksActivity : AppCompatActivity() {
         mBinding.tabLayout.addTab(mBinding.tabLayout.newTab().setText("Asks"))
         mBinding.tabLayout.tabGravity = TabLayout.GRAVITY_FILL
 
-
         lifecycleScope.launch {
             mCryptoViewModel.fetchAsksAndBids(lSymbol).enqueue(object : Callback<BidsAsks> {
                 override fun onResponse(call: Call<BidsAsks>, response: Response<BidsAsks>) {
@@ -88,7 +87,7 @@ class BidsAndAsksActivity : AppCompatActivity() {
         mPagerAdapter = BidsAsksPagerAdapter(supportFragmentManager, mFragments)
         mBinding.viewPager.adapter = mPagerAdapter
         mBinding.viewPager.offscreenPageLimit = 2
-        mBinding.viewPager.currentItem = 1
+        mBinding.viewPager.currentItem = 0
         mBinding.tabLayout.setupWithViewPager(mBinding.viewPager)
     }
 

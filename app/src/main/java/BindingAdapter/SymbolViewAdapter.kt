@@ -1,9 +1,14 @@
 package adapter
 
+import android.graphics.Color
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.example.cryptoapplication.PRICE
+import com.example.cryptoapplication.R
 import data.Crypto
+import helper.CommonHelper
 
 
 @BindingAdapter("app:changePriceTitleText")
@@ -14,6 +19,11 @@ fun changePriceTitleText(pPriceView: TextView, price: String) {
         PRICE.LOW_PRICE.name -> "Low Price"
         else -> "Buy Price"
     }
+}
+
+@BindingAdapter("app:addSymbol")
+fun addSymbol(pSymbolView: TextView, symbol: String) {
+    pSymbolView.text = CommonHelper(pSymbolView.context).setSymbolSpan(symbol)
 }
 
 @BindingAdapter("app:changeTitleText")

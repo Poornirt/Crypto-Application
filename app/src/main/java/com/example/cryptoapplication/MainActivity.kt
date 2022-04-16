@@ -8,6 +8,7 @@ import com.example.cryptoapplication.databinding.ActivityMainBinding
 import fragment.MarketFragment
 import fragment.WatchListFragment
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding

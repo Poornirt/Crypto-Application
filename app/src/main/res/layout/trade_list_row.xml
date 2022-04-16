@@ -38,12 +38,10 @@
                     android:id="@+id/price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="15dp"
                     android:layout_toEndOf="@+id/coin_view"
                     android:text="@{`Price`+`        $`+trade.price}"
-                    android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     tools:text="Symbol" />
 
 
@@ -51,11 +49,10 @@
                     android:id="@+id/quantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="15dp"
                     android:layout_below="@+id/price"
                     android:layout_toEndOf="@+id/coin_view"
                     android:text="@{`Quantity`+`    `+trade.qty}"
-                    android:textColor="@color/black"
                     android:textSize="16sp"
                     tools:text="Symbol" />
 
