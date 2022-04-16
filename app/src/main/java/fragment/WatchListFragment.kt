@@ -33,6 +33,13 @@ class WatchListFragment:Fragment() {
         mCommonHelper = CommonHelper(requireActivity())
         val lList = mCommonHelper.jsonToGson()
         mWatchList =  if(lList.isNullOrEmpty()) ArrayList() else lList as ArrayList<Crypto>
+        if (mWatchList.isEmpty()) {
+            mBinding.watchlistView.visibility = View.VISIBLE
+            mBinding.quantityPriceLayout.visibility = View.GONE
+        } else {
+            mBinding.watchlistView.visibility = View.GONE
+            mBinding.quantityPriceLayout.visibility = View.VISIBLE
+        }
         setAdapter()
     }
 

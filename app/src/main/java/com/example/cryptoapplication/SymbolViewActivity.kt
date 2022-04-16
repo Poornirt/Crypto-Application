@@ -81,11 +81,11 @@ class SymbolViewActivity : AppCompatActivity() {
         }
 
         mBinding.addToWatchlist.setOnClickListener {
-            addToWatchlist()
+            addToWatchlist(true)
         }
     }
 
-    private fun addToWatchlist() {
+    private fun addToWatchlist(pAddOrRemove:Boolean) {
         if (!mAddedToWatchList) {
             mAddedToWatchList = true
             mBinding.addToWatchlist.setImageDrawable(
@@ -94,8 +94,10 @@ class SymbolViewActivity : AppCompatActivity() {
                     null
                 )
             )
-            mWatchList.add(mBinding.crypto!!)
-            mCommonHelper.gsonToJson(mWatchList)
+            if (pAddOrRemove) {
+                mWatchList.add(mBinding.crypto!!)
+                mCommonHelper.gsonToJson(mWatchList)
+            }
         } else {
             mAddedToWatchList = false
             mBinding.addToWatchlist.setImageDrawable(
@@ -104,10 +106,13 @@ class SymbolViewActivity : AppCompatActivity() {
                     null
                 )
             )
-            mWatchList.remove(mBinding.crypto!!)
-            mCommonHelper.gsonToJson(mWatchList)
+            if (pAddOrRemove) {
+                mWatchList.remove(mBinding.crypto!!)
+                mCommonHelper.gsonToJson(mWatchList)
+            }
         }
     }
+
 
     private fun buyPriceTitleChange() {
         mBinding.buyPrice.setOnClickListener {
@@ -139,6 +144,8 @@ class SymbolViewActivity : AppCompatActivity() {
                                 response.body()?.let {
                                     Log.d("SymbolViewActivity", response.body().toString())
                                     mBinding.crypto = response.body()
+                                    mAddedToWatchList = !mWatchList.contains(mBinding.crypto)
+                                    addToWatchlist(false)
                                     val lTitle =
                                         mBinding.crypto?.symbol?.replace("inr", "/inr")?.uppercase()
                                     title = lTitle

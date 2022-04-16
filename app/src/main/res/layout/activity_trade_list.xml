@@ -14,5 +14,14 @@
             android:padding="10dp"
             android:textColor="@color/black" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/watchlist_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:visibility="gone"
+            android:text="@string/your_watchlist_is_empty"/>
+
     </LinearLayout>
 </layout>

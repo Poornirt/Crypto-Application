@@ -16,4 +16,12 @@ data class Crypto(
     var bidPrice: String,
     var askPrice: String,
     var at: Long
-):Parcelable
+
+
+):Parcelable {
+    override fun equals(other: Any?): Boolean {
+        if (this.symbol == (other as Crypto).symbol) return true
+        return false
+    }
+}
+
