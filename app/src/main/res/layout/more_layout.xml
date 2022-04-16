@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="crypto"
+            type="data.Crypto" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/openPriceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:gravity="end"
+            android:text="@string/open_price"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/openPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:gravity="end"
+            android:text="@{`$` + crypto.openPrice}"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="14sp"
+            tools:text="24524545" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/highPriceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/openPriceTitle"
+            android:layout_marginStart="5dp"
+            android:gravity="end"
+            android:text="@string/high_price"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/highPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/openPriceTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:gravity="end"
+            android:text="@{`$` + crypto.highPrice}"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="14sp"
+            tools:text="24524545" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lowPriceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/highPriceTitle"
+            android:layout_marginStart="5dp"
+            android:gravity="end"
+            android:text="@string/low_price"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lowPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/highPrice"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:gravity="end"
+            android:text="@{`$` + crypto.lowPrice}"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="14sp"
+            tools:text="24524545" />
+
+    </RelativeLayout>
+
+</layout>
+
+

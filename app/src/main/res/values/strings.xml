@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CryptoApplication</string>
+    <string name="market">Market</string>
+    <string name="more">more</string>
+    <string name="open_price">Open Price</string>
+    <string name="high_price">High Price</string>
+    <string name="low_price">Low Price</string>
+    <string name="current_buy_price">Current Buy Price</string>
+    <string name="buy_price">Buy Price</string>
+    <string name="bids_amp_asks"><![CDATA[Bids & Asks]]></string>
+    <string name="trades_list">Trades List</string>
+</resources>
